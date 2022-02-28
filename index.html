@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tá chegando a hora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      font-family: "Open Sans", sans-serif;
+      color: #FAFAFA;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      align-items: center;
+      justify-content: center;
+      background-color: #121212;
+    }
+
+    h1 {
+      font-size: 6rem;
+      text-align: center;
+    }
+
+    table {
+      font-size: 2rem;
+      height: 10rem;
+      text-align: center;
+      border-spacing: 1rem;
+    }
+
+    td {
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>TÁ CHEGANDO A HORA DE SE PREJUDICAR</h1>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">dias</th>
+        <th scope="col">horas</th>
+        <th scope="col">minutos</th>
+        <th scope="col">segundos</th>
+        <th scope="col">milissegundos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row"><p id="dias"></p></td>
+        <td scope="row"><p id="horas"></p></td>
+        <td scope="row"><p id="minutos"></p></td>
+        <td scope="row"><p id="segundos"></p></td>
+        <td scope="row"><p id="milissegundos"></p></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const titulo = document.querySelector("h1")
+    const tabela = document.querySelector("table");
+    const dias = document.querySelector("#dias"),
+          horas = document.querySelector("#horas"),
+          minutos = document.querySelector("#minutos"),
+          segundos = document.querySelector("#segundos"),
+          milissegundos = document.querySelector("#milissegundos");
+    const target = new Date(2022, 2, 5, 19).getTime();
+
+    function padLeft (value) {
+      if (value < 10) return `0${value}`;
+      return value;
+    }
+
+    const _second = 1000,
+          _minute = _second * 60,
+          _hour = _minute * 60,
+          _day = _hour * 24;
+
+    let interval = setInterval(() => {
+      let now = new Date().getTime();
+      let distance = target - now;
+
+      let _dias = Math.floor(distance / _day),
+          _horas = Math.floor((distance % _day) / _hour),
+          _minutos = Math.floor((distance % _hour) / _minute),
+          _segundos = Math.floor((distance % _minute) / _second),
+          _milissegundos = (Math.floor(distance % _second) / 10).toFixed(0);
+
+      dias.textContent = _dias;
+      horas.textContent = _horas;
+      minutos.textContent = _minutos;
+      segundos.textContent = _segundos;
+      milissegundos.textContent = _milissegundos;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        tabela.style.display = "none";
+        titulo.textContent = "BORA SE PREJUDICAR";
+      }
+    }, 10);
+  </script>
+</body>
+</html>
