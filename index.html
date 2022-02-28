@@ -51,6 +51,17 @@
         padding-right: 1rem;
       }
 
+      .body-final {
+        background: url('https://spinoff.com.br/entrete/wp-content/uploads/2021/08/instagram-zeca-pagodinho-reproducao-19-8_fixed_large.jpg') no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .titulo-final {
+        background-color: white;
+        color: #121212;
+      }
+      
       @media(min-width: 600px) {
         .titulo {
           font-size: 6rem;
@@ -120,10 +131,8 @@
           countdown.style.display = "none";          
           titulo.textContent = "BORA SE PREJUDICAR";
 
-          titulo.style.color = "#121212";
-          titulo.style.backgroundColor = "white";
-          document.body.style.background = "url('https://spinoff.com.br/entrete/wp-content/uploads/2021/08/instagram-zeca-pagodinho-reproducao-19-8_fixed_large.jpg')"
-          document.body.style.backgroundSize = "cover";
+          titulo.classList.add("titulo-final");
+          document.body.classList.add("body-final");
         }
       }, 10);
     </script>
