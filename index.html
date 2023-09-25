@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tá chegando a hora</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * {
         margin: 0;
@@ -18,7 +20,7 @@
 
       :root {
         font-family: "Open Sans", sans-serif;
-        color: #FAFAFA;
+        color: #fafafa;
       }
 
       body {
@@ -52,7 +54,8 @@
       }
 
       .body-final {
-        background: url('https://spinoff.com.br/entrete/wp-content/uploads/2021/08/instagram-zeca-pagodinho-reproducao-19-8_fixed_large.jpg') no-repeat;
+        background: url("https://spinoff.com.br/entrete/wp-content/uploads/2021/08/instagram-zeca-pagodinho-reproducao-19-8_fixed_large.jpg")
+          no-repeat;
         background-position: center;
         background-size: cover;
       }
@@ -61,8 +64,8 @@
         background-color: white;
         color: #121212;
       }
-      
-      @media(min-width: 600px) {
+
+      @media (min-width: 600px) {
         .titulo {
           font-size: 6rem;
         }
@@ -76,34 +79,29 @@
     <div class="contagem">
       <span id="dias"></span>
       <span>dias</span>
-    
+
       <span id="horas"></span>
       <span>horas</span>
-    
+
       <span id="minutos"></span>
       <span>minutos</span>
-    
+
       <span id="segundos"></span>
       <span>segundos</span>
-    
+
       <span id="milissegundos"></span>
       <span>milissegundos</span>
     </div>
 
     <script>
-      const titulo = document.querySelector("h1")
+      const titulo = document.querySelector("h1");
       const countdown = document.querySelector("div.contagem");
       const dias = document.querySelector("#dias"),
         horas = document.querySelector("#horas"),
         minutos = document.querySelector("#minutos"),
         segundos = document.querySelector("#segundos"),
         milissegundos = document.querySelector("#milissegundos");
-      const target = new Date(2022, 2, 19, 19).getTime();
-
-      function padLeft(value) {
-        if (value < 10) return `0${value}`;
-        return value;
-      }
+      const target = new Date(2023, 9, 6, 18).getTime();
 
       const _second = 1000,
         _minute = _second * 60,
@@ -128,15 +126,13 @@
 
         if (distance < 0) {
           clearInterval(interval);
-          countdown.style.display = "none";          
+          countdown.style.display = "none";
           titulo.textContent = "BORA SE PREJUDICAR";
 
           titulo.classList.add("titulo-final");
           document.body.classList.add("body-final");
         }
-        
       }, 10);
     </script>
   </body>
-
 </html>
